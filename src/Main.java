@@ -9,8 +9,6 @@ void main() {
     Member member1 = new Member("Christoffer Vilstrup",122);
     Member member2 = new Member("Kong Gulerod",239);
 
-
-    IO.println(book2);
-    book2.loanBook(member1);
-    IO.println(book2);
+    Loan loan1 = new Loan(book2, member1, LocalDate.of(2026,9, 11));
+    IO.println(loan1);
 }
