@@ -1,9 +1,9 @@
 import java.time.LocalDate;
 
 public class Loan {
-    Book book;
-    Member borrowedBy;
-    LocalDate borrowedDate;
+    private Book book;
+    private Member borrowedBy;
+    private LocalDate borrowedDate;
 
 
 
