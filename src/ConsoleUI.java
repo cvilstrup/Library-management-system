@@ -68,7 +68,12 @@ public class ConsoleUI {
         private void showLoans(){
             int memberID = Integer.parseInt(IO.readln("Indtast dit lånenummer: "));
             IO.println();
-            IO.println(library.getMember(memberID));
-            IO.println(library.findLoansByMemberID(memberID));
+                IO.println(library.getMember(memberID));
+                library.findLoansByMemberID(memberID);
+                if(library.findLoansByMemberID(memberID) == null){
+                    IO.println("Der er ingen lån tilknyttet til denne bruger");
+                }else{
+                    IO.println(library.findLoansByMemberID(memberID));
+                }
+            }
     }
-}

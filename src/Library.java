@@ -30,7 +30,7 @@ public class Library {
 
     public Book getBook(int bookID){
         for (Book book : books) {
-            if (book.getID() == bookID) {
+            if (book.ID() == bookID) {
                 return book;
             }
         }
@@ -82,7 +82,7 @@ public class Library {
 
     public Loan getLoan(int bookID){
         for (Loan loan : loans) {
-            if (loan.getBook().getID() == bookID) {
+            if (loan.getBook().ID() == bookID) {
                 return loan;
             }
         }
