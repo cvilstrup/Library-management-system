@@ -12,6 +12,12 @@ void main() {
     Book book8 = new Book("J.R.R. Tolkien","De to tårne","9780007136568",8);
     Book book9 = new Book("J.R.R. Tolkien","Kongen vender tilbage","9788702134599",9);
 
+    //NES, SNES, Game Boy, Nintendo 64, Nintendo GameCube, Game Boy Advance, Nintendo DS, Nintendo Wii, Nintendo 3DS, Nintendo Wii U, Nintendo Switch, Nintendo Switch 2
+    //PlayStation, PlayStation 2, PlayStation 3, PlayStation 4, PlayStation 5, PSP, PS Vita
+    //Original Xbox, Xbox 360, Xbox One, Xbox Series X
+    //PC, MS-DOS, Linux, MacOS
+    //Sega Mega Drive/Genesis, Sega Saturn, Sega Dreamcast
+
     Member member1 = new Member("Christoffer Vilstrup",122);
     Member member2 = new Member("Kong Gulerod",239);
     Member member3 = new Member("Jeffrey Epstein", 666);
@@ -21,6 +27,8 @@ void main() {
     library.addMember(member1);
     library.addMember(member2);
     library.addMember(member3);
+    library.addMember(member4);
+    library.addMember(member5);
 
     library.addBook(book1);
     library.addBook(book2);
@@ -28,6 +36,9 @@ void main() {
     library.addBook(book4);
     library.addBook(book5);
     library.addBook(book6);
+    library.addBook(book7);
+    library.addBook(book8);
+    library.addBook(book9);
 
     consoleUI.run();
 }
