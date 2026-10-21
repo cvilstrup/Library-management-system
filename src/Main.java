@@ -2,15 +2,15 @@ void main() {
     Library library = new Library();
     ConsoleUI consoleUI = new ConsoleUI(library);
 
-    Book book1 = new Book("J.K. Rowling", "Harry Potter og De Vises Sten", "8700398365", 1);
-    Book book2 = new Book("Alexandre Dumas", "Greven af Monte Cristo", "9788763812177", 2);
-    Book book3 = new Book("Harper Lee","Dræb ikke en sangfugl","9788711537015",3);
-    Book book4 = new Book("Lev Tolstoy","Krig og Fred","9788702294903",4);
-    Book book5 = new Book("Ray Bradbury","Fahrenheit 451","9781451673319",5);
-    Book book6 = new Book("John Steinbeck","Mus og mænd","9788711699560",6);
-    Book book7 = new Book("J.R.R. Tolkien","Eventyret om ringen","9780007136599",7);
-    Book book8 = new Book("J.R.R. Tolkien","De to tårne","9780007136568",8);
-    Book book9 = new Book("J.R.R. Tolkien","Kongen vender tilbage","9788702134599",9);
+    Book book1 = new Book("8700398365","J.K. Rowling", "Harry Potter og De Vises Sten", 368);
+    Book book2 = new Book("9788763812177","Alexandre Dumas", "Greven af Monte Cristo",840);
+    Book book3 = new Book("9788711537015","Harper Lee","Dræb ikke en sangfugl",365);
+    Book book4 = new Book("9788702294903","Lev Tolstoy","Krig og Fred",1440);
+    Book book5 = new Book("9781451673319","Ray Bradbury","Fahrenheit 451",173);
+    Book book6 = new Book("9788711699560","John Steinbeck","Mus og mænd",239);
+    Book book7 = new Book("9780007136599","J.R.R. Tolkien","Eventyret om ringen",550);
+    Book book8 = new Book("9780007136568","J.R.R. Tolkien","De to tårne",544);
+    Book book9 = new Book("9788702134599","J.R.R. Tolkien","Kongen vender tilbage",531);
 
     VideoGame videogame1 = new VideoGame("12345678","Transport Tycoon","OpenTTD Team","MS-DOS");
     VideoGame videogame2 = new VideoGame("12345678","Super Mario Bros","Nintendo","NES");
@@ -39,6 +39,13 @@ void main() {
     Movie movie8 = new Movie("12345678","Resident Evil (2026)","Columbia Pictures","Zach Cregger",95);
     Movie movie9 = new Movie("12345678","Free Solo","Nat-Geo Films","Jimmy Chin, Elizabeth C. Vasarhelyi",100);
     Movie movie10 = new Movie("12345678","Barbie","Warner Bros","Greta Gerwig",114);
+
+    AudioBook audiobook1 = new AudioBook("12345678","Hillbilly Elegy","?","J.D. Vance",409);
+    AudioBook audiobook2 = new AudioBook("12345678","The Hobbit","?","J.R.R. Tolkien",625);
+    AudioBook audiobook3 = new AudioBook("12345678","The Fault in Our Stars","?","John Green",434);
+    AudioBook audiobook4 = new AudioBook("12345678","Project Hail Mary","?","Andy Weir",970);
+    AudioBook audiobook5 = new AudioBook("12345678","Wonder","?","R.J. Palacio",430);
+    AudioBook audiobook6 = new AudioBook("12345678","Steve Jobs","?","Walter Isaacson",1518);
 
     //NES, SNES, Game Boy, Nintendo 64, Nintendo GameCube, Game Boy Advance, Nintendo DS, Nintendo Wii, Nintendo 3DS, Nintendo Wii U, Nintendo Switch, Nintendo Switch 2
     //PlayStation, PlayStation 2, PlayStation 3, PlayStation 4, PlayStation 5, PSP, PS Vita
