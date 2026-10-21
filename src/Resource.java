@@ -24,7 +24,7 @@ public class Resource {
     @Override
     public String toString() {
         return String.format("""
-                        %s: %s; ID: %s
+                        %s: %s; ID: %s 
                         """,
                 creator, title, identifier);
     }
