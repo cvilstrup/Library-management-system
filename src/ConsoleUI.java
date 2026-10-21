@@ -11,8 +11,8 @@ public class ConsoleUI {
             showMenu();
             int choice = Integer.parseInt(IO.readln("Indtast dit valg: "));
             switch (choice) {
-                case 1 -> borrowBook();
-                case 2 -> returnBook();
+                case 1 -> borrowResource();
+                case 2 -> returnResource();
                 case 3 -> showLoans();
                 case 0 -> running = false;
                 default -> IO.println("Ugyldigt valg. Prøv igen: ");
@@ -28,52 +28,51 @@ public class ConsoleUI {
         IO.println();
     }
 
-    private void borrowBook() {
+    private void borrowResource() {
         int memberID = Integer.parseInt(IO.readln("Indtast dit lånenummer: "));
-        int bookID = Integer.parseInt(IO.readln("Indtast bog id: "));
+        String identifier = IO.readln("Indtast ISBN/EAN: ");
 
-        Member member = library.getMember(memberID);
-        if (member == null) {
+        if (library.getMember(memberID) == null) {
             IO.println("Brugeren eksisterer ikke");
+            return;
         }
-
-        Book book = library.getBook(bookID);
-        if(book == null){
-            IO.println("Bogen eksisterer ikke");
+        if (library.getResource(identifier) == null) {
+            IO.println("Materialet eksisterer ikke");
+            return;
         }
-
-        boolean loanSuccesful = library.loanBook(bookID, memberID);
-        if(loanSuccesful){
-            IO.println("Lånet blev registeret");
-        }else{
+        if (library.loanResource(identifier, memberID)) {
+            IO.println("Lånet blev registreret");
+        } else {
             IO.println("Lånet kunne desværre ikke gennemføres");
         }
     }
-    private void returnBook(){
-        int bookID = Integer.parseInt(IO.readln("Indtast bog id: "));
 
-        Book book = library.getBook(bookID);
-        if(book == null){
-            IO.println("Bogen eksisterer ikke");
+    private void returnResource() {
+        String identifier = IO.readln("Indtast ISBN/EAN: ");
+
+        if (library.getResource(identifier) == null) {
+            IO.println("Materialet eksisterer ikke");
+            return;
         }
 
-        boolean returnSuccesful = library.returnBook(bookID);
-        if(returnSuccesful){
-            IO.println("Mange tak. Bogen er nu afleveret");
-        }else{
-            IO.println("Fejl: bogen kan ikke afleveres tilbage da den ikke er udlånt");
+        if (library.returnResource(identifier)) {
+            IO.println("Mange tak. Materialet er nu afleveret");
+        } else {
+            IO.println("Fejl: materialet kan ikke afleveres, da det ikke er udlånt");
         }
-        }
+    }
 
-        private void showLoans(){
-            int memberID = Integer.parseInt(IO.readln("Indtast dit lånenummer: "));
-            IO.println();
-                IO.println(library.getMember(memberID));
-                library.findLoansByMemberID(memberID);
-                if(library.findLoansByMemberID(memberID) == null){
-                    IO.println("Der er ingen lån tilknyttet til denne bruger");
-                }else{
-                    IO.println(library.findLoansByMemberID(memberID));
-                }
+
+
+    private void showLoans(){
+        int memberID = Integer.parseInt(IO.readln("Indtast dit lånenummer: "));
+        IO.println();
+            IO.println(library.getMember(memberID));
+            library.findLoansByMemberID(memberID);
+            if(library.findLoansByMemberID(memberID) == null){
+                IO.println("Der er ingen lån tilknyttet til denne bruger");
+            }else{
+                IO.println(library.findLoansByMemberID(memberID));
             }
+        }
     }

@@ -1,14 +1,14 @@
 import java.time.LocalDate;
 
 public class Loan {
-    private Book book;
+    private Resource resource;
     private Member borrowedBy;
     private LocalDate borrowedDate;
 
 
 
-    public Loan(Book book, Member borrowedBy, LocalDate borrowedDate) {
-        this.book = book;
+    public Loan(Resource resource, Member borrowedBy, LocalDate borrowedDate) {
+        this.resource = resource;
         this.borrowedBy = borrowedBy;
         this.borrowedDate = borrowedDate;
     }
@@ -18,22 +18,21 @@ public class Loan {
     }
 
 
-    public boolean loanBook(Member member) {
+    public boolean loanResource(Member member) {
         if (isAvailable()) {
             borrowedBy = member;
             borrowedDate = LocalDate.now();
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     public LocalDate getDueDate() {
         return borrowedDate.plusDays(14);
     }
 
-    public Book getBook(){
-        return book;
+    public Resource getResource(){
+        return resource;
     }
 
     public Member getMember(){
@@ -45,6 +44,6 @@ public class Loan {
     }
 
     public String toString(){
-        return book + "" + borrowedBy + "Afleveringsfrist: " + getDueDate() ;
+        return resource + "" + borrowedBy + "Afleveringsfrist: " + getDueDate() ;
     }
 }
