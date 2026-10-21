@@ -30,15 +30,15 @@ void main() {
     library.addMember(member4);
     library.addMember(member5);
 
-    library.addBook(book1);
-    library.addBook(book2);
-    library.addBook(book3);
-    library.addBook(book4);
-    library.addBook(book5);
-    library.addBook(book6);
-    library.addBook(book7);
-    library.addBook(book8);
-    library.addBook(book9);
+    library.addResource(book1);
+    library.addResource(book2);
+    library.addResource(book3);
+    library.addResource(book4);
+    library.addResource(book5);
+    library.addResource(book6);
+    library.addResource(book7);
+    library.addResource(book8);
+    library.addResource(book9);
 
     consoleUI.run();
 }

@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Library {
-    private ArrayList<Book> books = new ArrayList<>();
+    private ArrayList<Resource> resources = new ArrayList<>();
     private ArrayList<Member> members = new ArrayList<>();
     private ArrayList<Loan> loans = new ArrayList<>();
 
@@ -12,26 +12,26 @@ public class Library {
         members.add(member);
     }
 
-    public void addBook(Book book) {
-        books.add(book);
+    public void addResource(Resource resource) {
+        resources.add(resource);
     }
 
     public ArrayList<Loan> getLoans() {
         return loans;
     }
 
-    public ArrayList<Book> getBooks() {
-        return books;
+    public ArrayList<Resource> getResources() {
+        return resources;
     }
 
     public ArrayList<Member> getMembers() {
         return members;
     }
 
-    public Book getBook(int bookID){
-        for (Book book : books) {
-            if (book.ID() == bookID) {
-                return book;
+    public Resource getResource(String identifier){
+        for (Resource resource : resources) {
+            if (resource.getIdentifier().equals(identifier)) {
+                return resource;
             }
         }
         return null;
@@ -46,14 +46,14 @@ public class Library {
         return null;
     }
 
-    public boolean loanBook(int bookID, int memberID){
-        Book book = getBook(bookID);
+    public boolean loanResource(String identifier, int memberID){
+        Resource resource = getResource(identifier);
         Member member = getMember(memberID);
-        Loan loan = getLoan(bookID);
+        Loan loan = getLoan(identifier);
 
-        if(book != null && member != null && loan == null){
+        if(resource != null && member != null && loan == null){
 
-                Loan newLoan = new Loan(book, member, LocalDate.now());
+                Loan newLoan = new Loan(resource, member, LocalDate.now());
                 loans.add(newLoan);
                 return true;
 
@@ -61,8 +61,8 @@ public class Library {
         return false;
     }
 
-    public boolean returnBook(int bookID){
-        Loan loan = getLoan(bookID);
+    public boolean returnResource(String identifier){
+        Loan loan = getLoan(identifier);
         if(loan != null){
             loans.remove(loan);
             return true;
@@ -70,27 +70,27 @@ public class Library {
         return false;
     }
 
-    public ArrayList <Book> findLoansByMemberID(int memberID){
-        ArrayList<Book> loanedBooks = new ArrayList<>();
+    public ArrayList <Resource> findLoansByMemberID(int memberID){
+        ArrayList<Resource> loanedResources = new ArrayList<>();
         for(Loan loan : loans){
             if(loan.getMember().getMemberID() == memberID){
-                loanedBooks.add(loan.getBook());
+                loanedResources.add(loan.getResource());
             }
         }
-        return loanedBooks;
+        return loanedResources;
     }
 
-    public Loan getLoan(int bookID){
+    public Loan getLoan(String identifier){
         for (Loan loan : loans) {
-            if (loan.getBook().ID() == bookID) {
+            if (loan.getResource().getIdentifier().equals(identifier)) {
                 return loan;
             }
         }
         return null;
     }
 
-    public void printBooks(){
-        IO.println(books);
+    public void printResources(){
+        IO.println(resources);
     }
     public void printMembers(){
         IO.println(members);

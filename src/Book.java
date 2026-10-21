@@ -1,9 +1,17 @@
-public record Book(String author, String title, String ISBN, int ID) {
+public class Book extends Resource {
 
-    public String toString() {
-        return String.format("""
-                        %s: %s; ISBN: %s; (%d);
-                        """,
-                author, title, ISBN, ID);
+    private final int pages;
+
+    public Book(String ISBN, String title, String creator, int pages) {
+        super(ISBN, title, creator);
+        this.pages = pages;
+    }
+
+    public String getISBN() {
+        return getIdentifier();
+    }
+
+    public int getPages() {
+        return pages;
     }
 }
