@@ -103,6 +103,13 @@ void main() {
     library.addResource(movie9);
     library.addResource(movie10);
 
+    library.addResource(audiobook1);
+    library.addResource(audiobook2);
+    library.addResource(audiobook3);
+    library.addResource(audiobook4);
+    library.addResource(audiobook5);
+    library.addResource(audiobook6);
+
 
     consoleUI.run();
 }
