@@ -21,11 +21,11 @@ public class ConsoleUI {
     }
     private void showMenu() {
         IO.println();
-        IO.println("1. Lån");
-        IO.println("2. Aflever");
-        IO.println("3. Vis alle lån");
-        IO.println("0. Afslut");
-        IO.println();
+        IO.println("\n" +
+                "1. Lån \n" +
+                "2. Aflever \n" +
+                "3. Vis alle lån \n" +
+                "0. Afslut \n");
     }
 
     private void borrowResource() {

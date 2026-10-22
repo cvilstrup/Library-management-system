@@ -26,15 +26,6 @@ public class Library {
         resources.add(resource);
     }
 
-    public boolean returnResource(String identifier){
-        Loan loan = getLoan(identifier);
-        if(loan != null){
-            loans.remove(loan);
-            return true;
-        }
-        return false;
-    }
-
     // Members
     public ArrayList<Member> getMemberList() {
         return members;
@@ -67,18 +58,18 @@ public class Library {
         return null;
     }
 
-    public LoanResult loanResource(int memberID, String resouceIdentifier) {
+    public LoanResult loanResource(int memberID, String identifier) {
         Member member = getMember(memberID);
         if (member == null) {
             return LoanResult.NOT_MEMBER;
         }
 
-        Resource resource = getResource(resouceIdentifier);
+        Resource resource = getResource(identifier);
         if (resource == null) {
             return LoanResult.NOT_RESOURCE;
         }
 
-        if (getLoan(resouceIdentifier) != null) {
+        if (getLoan(identifier) != null) {
             return LoanResult.RESOURCE_ALREADY_LOANED;
         }
 
@@ -87,23 +78,23 @@ public class Library {
         return LoanResult.LOANED;
     }
 
+    public boolean returnResource(String identifier){
+        Loan loan = getLoan(identifier);
+        if (loan != null) {
+            loans.remove(loan);
+            return true;
+        }
+        return false;
+    }
+
     public ArrayList <Resource> findLoansByMemberID(int memberID){
         ArrayList<Resource> loanedResources = new ArrayList<>();
         for(Loan loan : loans){
-            if(loan.getMember().getMemberID() == memberID){
+            if(loan.getBorrowedBy().getMemberID() == memberID){
                 loanedResources.add(loan.getResource());
             }
         }
         return loanedResources;
-    }
-
-    // ------------------------------------
-
-    public void printResources(){
-        IO.println(resources);
-    }
-    public void printMembers(){
-        IO.println(members);
     }
 }
 
