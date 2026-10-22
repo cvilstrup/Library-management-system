@@ -2,15 +2,15 @@ void main() {
     Library library = new Library();
     ConsoleUI consoleUI = new ConsoleUI(library);
 
-    Book book1 = new Book("8700398365","J.K. Rowling", "Harry Potter og De Vises Sten", 368);
-    Book book2 = new Book("9788763812177","Alexandre Dumas", "Greven af Monte Cristo",840);
-    Book book3 = new Book("9788711537015","Harper Lee","Dræb ikke en sangfugl",365);
-    Book book4 = new Book("9788702294903","Lev Tolstoy","Krig og Fred",1440);
-    Book book5 = new Book("9781451673319","Ray Bradbury","Fahrenheit 451",173);
-    Book book6 = new Book("9788711699560","John Steinbeck","Mus og mænd",239);
-    Book book7 = new Book("9780007136599","J.R.R. Tolkien","Eventyret om ringen",550);
-    Book book8 = new Book("9780007136568","J.R.R. Tolkien","De to tårne",544);
-    Book book9 = new Book("9788702134599","J.R.R. Tolkien","Kongen vender tilbage",531);
+    Book book1 = new Book("8700398365","Harry Potter og De Vises Sten", "J.K. Rowling", 368);
+    Book book2 = new Book("9788763812177","Greven af Monte Cristo", "Alexandre Dumas",840);
+    Book book3 = new Book("9788711537015","Dræb ikke en sangfugl","Harper Lee",365);
+    Book book4 = new Book("9788702294903","Krig og Fred","Lev Tolstoy",1440);
+    Book book5 = new Book("9781451673319","Fahrenheit 451","Ray Bradbury",173);
+    Book book6 = new Book("9788711699560","Mus og mænd","John Steinbeck",239);
+    Book book7 = new Book("9780007136599","Eventyret om ringen","J.R.R. Tolkien",550);
+    Book book8 = new Book("9780007136568","De to tårne","J.R.R. Tolkien",544);
+    Book book9 = new Book("9788702134599","Kongen vender tilbage","J.R.R. Tolkien",531);
 
     VideoGame videogame1 = new VideoGame("12345678","Transport Tycoon","OpenTTD Team","MS-DOS");
     VideoGame videogame2 = new VideoGame("12345678","Super Mario Bros","Nintendo","NES");
