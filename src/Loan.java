@@ -1,9 +1,9 @@
 import java.time.LocalDate;
 
 public class Loan {
-    private Resource resource;
-    private Member borrowedBy;
-    private LocalDate borrowedDate;
+    private final Resource resource;
+    private final Member borrowedBy;
+    private final LocalDate borrowedDate;
 
 
 
@@ -13,30 +13,20 @@ public class Loan {
         this.borrowedDate = borrowedDate;
     }
 
-    public boolean isAvailable() {
-        return borrowedBy == null;
-    }
-
-
-    public boolean loanResource(Member member) {
-        if (isAvailable()) {
-            borrowedBy = member;
-            borrowedDate = LocalDate.now();
-            return true;
-        }
-        return false;
-    }
-
-    public LocalDate getDueDate() {
-        return borrowedDate.plusDays(14);
-    }
-
     public Resource getResource(){
         return resource;
     }
 
-    public Member getMember(){
+    public Member getBorrowedBy(){
         return borrowedBy;
+    }
+
+    public LocalDate getBorrowedDate() {
+        return borrowedDate;
+    }
+
+    public LocalDate getDueDate() {
+        return borrowedDate.plusDays(14);
     }
 
     public boolean isOverDue(){
@@ -44,6 +34,6 @@ public class Loan {
     }
 
     public String toString(){
-        return resource + "" + borrowedBy + "Afleveringsfrist: " + getDueDate() ;
+        return resource + ", lånt af: " + borrowedBy + ". Afleveringsfrist: " + getDueDate() ;
     }
 }
