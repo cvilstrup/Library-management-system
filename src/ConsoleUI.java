@@ -19,6 +19,7 @@ public class ConsoleUI {
             }
         }
     }
+
     private void showMenu() {
         IO.println();
         IO.println("\n" +
