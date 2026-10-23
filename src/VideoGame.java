@@ -1,4 +1,4 @@
-public class VideoGame extends Resource {
+    public class VideoGame extends Resource {
 
     private final String platform;
 
