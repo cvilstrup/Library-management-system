@@ -47,12 +47,6 @@ void main() {
     AudioBook audiobook5 = new AudioBook("12345678","Wonder","?","R.J. Palacio",430);
     AudioBook audiobook6 = new AudioBook("12345678","Steve Jobs","?","Walter Isaacson",1518);
 
-    //NES, SNES, Game Boy, Nintendo 64, Nintendo GameCube, Game Boy Advance, Nintendo DS, Nintendo Wii, Nintendo 3DS, Nintendo Wii U, Nintendo Switch, Nintendo Switch 2
-    //PlayStation, PlayStation 2, PlayStation 3, PlayStation 4, PlayStation 5, PSP, PS Vita
-    //Original Xbox, Xbox 360, Xbox One, Xbox Series X
-    //PC, MS-DOS, Linux, MacOS
-    //Sega Mega Drive/Genesis, Sega Saturn, Sega Dreamcast
-
     Member member1 = new Member("Christoffer Vilstrup",100);
     Member member2 = new Member("Kong Gulerod",239);
     Member member3 = new Member("Jeffrey Epstein", 666);
@@ -103,6 +97,12 @@ void main() {
     library.addResource(movie9);
     library.addResource(movie10);
 
+    library.addResource(audiobook1);
+    library.addResource(audiobook2);
+    library.addResource(audiobook3);
+    library.addResource(audiobook4);
+    library.addResource(audiobook5);
+    library.addResource(audiobook6);
 
     consoleUI.run();
 }

@@ -12,6 +12,10 @@ public class Member {
         return memberName;
     }
 
+    public String getMemberName() {
+        return memberName;
+    }
+
     public int getMemberID() {
         return memberID;
     }
