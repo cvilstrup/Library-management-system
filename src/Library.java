@@ -64,17 +64,18 @@ public class Library {
             return LoanResult.NOT_MEMBER;
         }
 
+        if (getLoan(identifier) != null) {
+            return LoanResult.RESOURCE_ALREADY_LOANED;
+        }
+
         Resource resource = getResource(identifier);
         if (resource == null) {
             return LoanResult.NOT_RESOURCE;
         }
 
-        if (getLoan(identifier) != null) {
-            return LoanResult.RESOURCE_ALREADY_LOANED;
-        }
-
         Loan newLoan = new Loan(resource, member, LocalDate.now());
         loans.add(newLoan);
+        resources.remove(getResource(identifier));
         return LoanResult.LOANED;
     }
 
@@ -82,6 +83,7 @@ public class Library {
         Loan loan = getLoan(identifier);
         if (loan != null) {
             loans.remove(loan);
+            resources.add(loan.getResource());
             return true;
         }
         return false;
