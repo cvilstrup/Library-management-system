@@ -8,7 +8,7 @@ public class Member {
         this.memberName = memberName;
         this.memberID = memberID;
     }
-
+        //Get members Name
     public String getMemberName(){
         return memberName;
     }

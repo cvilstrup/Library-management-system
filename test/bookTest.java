@@ -3,7 +3,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 
 
-public class BookTest {
+     class BookTest {
     // public Book(String ISBN, String title, String creator, int pages)
 
     private Book book;

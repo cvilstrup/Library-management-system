@@ -2,7 +2,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 
-public class MemberTest {
+     class MemberTest {
     public Member member;
 
     @BeforeEach
@@ -13,6 +13,6 @@ public class MemberTest {
     @Test
     void getMemberTest() {
         assertEquals("Satan", member.getMemberName());
-        assertEquals("666", member.getMemberID());
+        assertEquals(666, member.getMemberID());
     }
 }
