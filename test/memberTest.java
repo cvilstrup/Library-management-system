@@ -1,18 +1,19 @@
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-     class MemberTest {
-    public Member member;
+ class MemberTest {
+
+    private Member member;
 
     @BeforeEach
-        // (String memberName, int memberID)
-    void setUpMember(){
-        member = new Member("Satan", 666);
+    void setUp() {
+        member = new Member("O.B.", 911);
     }
+
     @Test
-    void getMemberTest() {
-        assertEquals("Satan", member.getMemberName());
-        assertEquals(666, member.getMemberID());
+    void testGetters(){
+        assertEquals("O.B.", member.getMemberName());
+        assertEquals(911, member.getMemberID());
     }
 }
