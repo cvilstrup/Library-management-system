@@ -13,11 +13,27 @@ public class AudiobookTest {
     }
 
     @Test
-    void testGetters(){
+    void testGetISBN(){
         assertEquals("123", audioBook.getISBN());
+    }
+
+    @Test
+    void testGetTitle() {
         assertEquals("Mein Kampf", audioBook.getTitle());
+    }
+
+    @Test
+    void testGetCreator() {
         assertEquals("NS", audioBook.getCreator());
+    }
+
+    @Test
+    void testGetAuthor() {
         assertEquals("Store H", audioBook.getAuthor());
+    }
+
+    @Test
+    void testGetLengthMin() {
         assertEquals(420, audioBook.getLengthMin());
     }
 }
