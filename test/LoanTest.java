@@ -9,8 +9,8 @@ public class LoanTest {
 
     @Test
     void getResourceLoan() {
-        Resource r1 = new Resource("123", "LOL", "Din mor");
-        Member m1 = new Member("LOL", 200);
+        Resource r1 = new Resource("123", "Din mor", "LOL");
+        Member m1 = new Member("Din mor", 200);
         LocalDate ld1 = LocalDate.now();
         Loan loan = new Loan(r1, m1, ld1);
         Resource resource = loan.getResource();
