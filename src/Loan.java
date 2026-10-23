@@ -6,12 +6,13 @@ public class Loan {
     private final LocalDate borrowedDate;
 
 
-
     public Loan(Resource resource, Member borrowedBy, LocalDate borrowedDate) {
         this.resource = resource;
         this.borrowedBy = borrowedBy;
         this.borrowedDate = borrowedDate;
     }
+// switch(Feedback)
+//    case Loan -> IO.println()
 
     public Resource getResource(){
         return resource;
