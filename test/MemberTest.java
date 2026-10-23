@@ -13,8 +13,12 @@ public class MemberTest {
     }
 
     @Test
-    void testGetters(){
+    void testGetMemberName(){
         assertEquals("O.B.", member.getMemberName());
+    }
+
+    @Test
+    void testGetMemberID(){
         assertEquals(911, member.getMemberID());
     }
 }

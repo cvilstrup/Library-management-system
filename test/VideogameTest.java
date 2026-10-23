@@ -13,10 +13,22 @@ public class VideogameTest {
     }
 
     @Test
-    void testGetters(){
+    void testGetEAN(){
         assertEquals("123", videoGame.getEAN());
+    }
+
+    @Test
+    void testGetTitle() {
         assertEquals("Mario", videoGame.getTitle());
+    }
+
+    @Test
+    void testGetCreator() {
         assertEquals("Luigi", videoGame.getCreator());
+    }
+
+    @Test
+    void testGetPlatform() {
         assertEquals("Nintendo", videoGame.getPlatform());
     }
 }
