@@ -14,11 +14,22 @@ public class BookTest {
     }
 
     @Test
-    void getBookTest(){
+    void testGetISBN(){
         assertEquals("234", book.getISBN());
-        assertEquals("Fire and Ice", book.getTitle());
-        assertEquals("George RR Martin", book.getCreator());
-        assertEquals(666, book.getPages());
     }
 
+    @Test
+    void testGetTitle() {
+        assertEquals("Fire and Ice", book.getTitle());
+    }
+
+    @Test
+    void testGetCreator() {
+        assertEquals("George RR Martin", book.getCreator());
+    }
+
+    @Test
+    void testGetPages() {
+        assertEquals(666, book.getPages());
+    }
 }
