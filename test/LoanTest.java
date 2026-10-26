@@ -12,7 +12,8 @@ public class LoanTest {
         Resource r1 = new Resource("123", "Din mor", "LOL");
         Member m1 = new Member("Din mor", 200);
         LocalDate ld1 = LocalDate.now();
-        Loan loan = new Loan(r1, m1, ld1);
+        LoanPolicy standardLoanPolicy = new StandardLoanPolicy();
+        Loan loan = new Loan(r1, m1, ld1, standardLoanPolicy);
         Resource resource = loan.getResource();
         assertEquals(r1, loan.getResource());
     }

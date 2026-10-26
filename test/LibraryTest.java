@@ -13,12 +13,14 @@ public class LibraryTest {
     private Library library;
     private Book book;
     private Member member;
+    private LoanPolicy standardLoanPolicy;
 
     @BeforeEach
     void setUp() {
         library = new Library();
         book = new Book("123","Harry Potter", "J.K.", 456);
         member = new Member("Idi Amin", 123);
+        standardLoanPolicy = new StandardLoanPolicy();
 
         library.addMember(member);
         library.addResource(book);
@@ -40,27 +42,27 @@ public class LibraryTest {
 
     @Test
     void testLoanResource_NOT_MEMBER() {
-        LoanResult result = library.loanResource(321, "123");
+        LoanResult result = library.loanResource(321, "123", standardLoanPolicy);
         assertEquals(LoanResult.NOT_MEMBER, result);
     }
 
     @Test
     void testLoanResource_RESOURCE_ALREADY_LOANED() {
-        library.loanResource(123, "123");
-        LoanResult result = library.loanResource(123, "123");
+        library.loanResource(123, "123", standardLoanPolicy);
+        LoanResult result = library.loanResource(123, "123", standardLoanPolicy);
 
         assertEquals(LoanResult.RESOURCE_ALREADY_LOANED, result);
     }
 
     @Test
     void testLoanResource_NOT_RESOURCE() {
-        LoanResult result = library.loanResource(123, "321");
+        LoanResult result = library.loanResource(123, "321", standardLoanPolicy);
         assertEquals(LoanResult.NOT_RESOURCE, result);
     }
 
     @Test
     void testLoanResource_LOANED() {
-        LoanResult result = library.loanResource(123, "123");
+        LoanResult result = library.loanResource(123, "123", standardLoanPolicy);
 
         assertEquals(LoanResult.LOANED, result);
         assertEquals(member, library.getLoan("123").getBorrowedBy());
@@ -69,7 +71,7 @@ public class LibraryTest {
 
     @Test
     void testReturnResource_SUCCES() {
-        library.loanResource(123, "123");
+        library.loanResource(123, "123", standardLoanPolicy);
         boolean result = library.returnResource("123");
 
         assertTrue(result);
@@ -77,7 +79,7 @@ public class LibraryTest {
 
     @Test
     void testReturnResource_FAIL() {
-        library.loanResource(123, "123");
+        library.loanResource(123, "123", standardLoanPolicy);
         library.returnResource("123");
         boolean result = library.returnResource("123");
 
