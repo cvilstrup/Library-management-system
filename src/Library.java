@@ -58,7 +58,8 @@ public class Library {
         return null;
     }
 
-    public LoanResult loanResource(int memberID, String identifier) {
+    public LoanResult loanResource(int memberID, String identifier, LoanPolicy loanPolicy) {
+
         Member member = getMember(memberID);
         if (member == null) {
             return LoanResult.NOT_MEMBER;
@@ -73,10 +74,14 @@ public class Library {
             return LoanResult.NOT_RESOURCE;
         }
 
-        Loan newLoan = new Loan(resource, member, LocalDate.now());
-        loans.add(newLoan);
-        resources.remove(getResource(identifier));
-        return LoanResult.LOANED;
+        if (loanPolicy.canLoan()) {
+            Loan newLoan = new Loan(resource, member, LocalDate.now(), loanPolicy);
+            loans.add(newLoan);
+            resources.remove(getResource(identifier));
+            return LoanResult.LOANED;
+        }
+
+        return LoanResult.MAX_LOANS;
     }
 
     public boolean returnResource(String identifier){

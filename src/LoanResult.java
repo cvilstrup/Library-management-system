@@ -2,5 +2,6 @@ public enum LoanResult {
     NOT_MEMBER,
     NOT_RESOURCE,
     RESOURCE_ALREADY_LOANED,
-    LOANED
+    LOANED,
+    MAX_LOANS
 }

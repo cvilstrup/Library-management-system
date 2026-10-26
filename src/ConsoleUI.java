@@ -32,13 +32,20 @@ public class ConsoleUI {
     private void borrowResource() {
         int memberID = Integer.parseInt(IO.readln("Indtast dit lånenummer: "));
         String identifier = IO.readln("Indtast ISBN/EAN: ");
-        LoanResult result = library.loanResource(memberID, identifier);
+        String loanPolicyStr = IO.readln("Indtast by");
+        LoanPolicy loanPolicy;
+        switch (loanPolicyStr)   {
+            default ->  loanPolicy = new StandardLoanPolicy();
+        }
+
+        LoanResult result = library.loanResource(memberID, identifier, loanPolicy);
 
         switch (result) {
             case NOT_MEMBER -> IO.println("Brugeren eksisterer ikke");
             case NOT_RESOURCE -> IO.println("Materialet eksisterer ikke");
             case RESOURCE_ALREADY_LOANED -> IO.println("Materialet er allerede lånt");
             case LOANED -> IO.println("Lånet blev registreret");
+            case MAX_LOANS -> IO.println("Lånet blev ikke registreret");
             default -> IO.println("Der er sket en fejl");
         }
     }
