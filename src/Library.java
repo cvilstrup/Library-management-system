@@ -74,7 +74,7 @@ public class Library {
             return LoanResult.NOT_RESOURCE;
         }
 
-        if (loanPolicy.canLoan()) {
+        if (loanPolicy.canLoan(resource, findLoansByMemberID(memberID))) {
             Loan newLoan = new Loan(resource, member, LocalDate.now(), loanPolicy);
             loans.add(newLoan);
             resources.remove(getResource(identifier));
