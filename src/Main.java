@@ -11,6 +11,7 @@ void main() {
     Book book7 = new Book("9780007136599","Eventyret om ringen","J.R.R. Tolkien",550);
     Book book8 = new Book("9780007136568","De to tårne","J.R.R. Tolkien",544);
     Book book9 = new Book("9788702134599","Kongen vender tilbage","J.R.R. Tolkien",531);
+    Book book10 = new Book("9781612130286","Fifty Shades of Grey","E.L. James",356);
 
     VideoGame videogame1 = new VideoGame("5023117501876","Transport Tycoon","OpenTTD Team","MS-DOS");
     VideoGame videogame2 = new VideoGame("333148000544","Super Mario Bros","Nintendo","NES");
@@ -28,6 +29,7 @@ void main() {
     VideoGame videogame14 = new VideoGame("5021290037151","Batman: Arkham Asylum","Rocksteady","PC");
     VideoGame videogame15 = new VideoGame("5055060974698","Resident Evil 4 [2023]","Capcom","Xbox Series X");
     VideoGame videogame16 = new VideoGame("5060004760602","Jet Set Radio","Smilebit","SEGA Dreamcast");
+    VideoGame videogame17 = new VideoGame("0045496731847","Metroid Fusion","Nintendo","Game Boy Advance");
 
     Movie movie1 = new Movie("5060223762043","Pulp Fiction","Miramax","Quentin Tarantino",154);
     Movie movie2 = new Movie("7332431027756","Saving Private Ryan","Amblin Entertainment","Steven Spielberg",169);
@@ -68,6 +70,7 @@ void main() {
     library.addResource(book7);
     library.addResource(book8);
     library.addResource(book9);
+    library.addResource(book10);
 
     library.addResource(videogame1);
     library.addResource(videogame2);
@@ -85,6 +88,7 @@ void main() {
     library.addResource(videogame14);
     library.addResource(videogame15);
     library.addResource(videogame16);
+    library.addResource(videogame17);
 
     library.addResource(movie1);
     library.addResource(movie2);
