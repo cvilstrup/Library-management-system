@@ -1,19 +1,23 @@
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Objects;
 
-public class Library {
+public class Library extends StandardLoanPolicy implements LoanPolicy {
     private ArrayList<Resource> resources = new ArrayList<>();
     private ArrayList<Member> members = new ArrayList<>();
     private ArrayList<Loan> loans = new ArrayList<>();
 
+    public Library(ArrayList<Loan> loans, LoanPolicy loanPolicy) {
+    }
+
 
     // Resources
+    public interface LoanPolicy{
+        void oanPolicy (String resources);
+    }
     public ArrayList<Resource> getResourceList() {
         return resources;
     }
 
-    public Resource getResource(String identifier){
+    public Resource getResource(String identifier) {
         for (Resource resource : resources) {
             if (resource.getIdentifier().equals(identifier)) {
                 return resource;
@@ -31,7 +35,7 @@ public class Library {
         return members;
     }
 
-    public Member getMember(int memberID){
+    public Member getMember(int memberID) {
         for (Member member : members) {
             if (member.getMemberID() == memberID) {
                 return member;
@@ -45,6 +49,7 @@ public class Library {
     }
 
     // Loans
+
     public ArrayList<Loan> getLoanList() {
         return loans;
     }
@@ -88,16 +93,33 @@ public class Library {
         }
         return false;
     }
+//    LoanPolicy loanPolicy = new StandardLoanPolicy() {
+//        @Override
+//        void canLoan() {
+//        }
+//
+//        void loanPolicy() {
+//        }
+//
+//        Library library = new Library(loans, loanPolicy) {
+//            if(!loanPolicy.canLoan())            {
+//                LoanResult notPermitted = LoanResult.NOT_PERMITTED;
+//                return notPermitted;
+//            }
+//        }
+//    }
 
-    public ArrayList <Resource> findLoansByMemberID(int memberID){
-        ArrayList<Resource> loanedResources = new ArrayList<>();
-        for(Loan loan : loans){
-            if(loan.getBorrowedBy().getMemberID() == memberID){
-                loanedResources.add(loan.getResource());
+
+        public ArrayList<Resource> findLoansByMemberID(int memberID) {
+            ArrayList<Resource> loanedResources = new ArrayList<>();
+            for (Loan loan : loans) {
+                if (loan.getBorrowedBy().getMemberID() == memberID) {
+                    loanedResources.add(loan.getResource());
+                }
             }
+            return loanedResources;
         }
-        return loanedResources;
-    }
+    };
 }
 
 

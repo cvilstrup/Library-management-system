@@ -1,8 +1,7 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class StandardLoanPolicy implements LoanPolicy{
-
+public abstract class StandardLoanPolicy implements LoanPolicy{
 
     @Override
     public boolean canLoan(String identifier, ArrayList<Loan> loanList) {
@@ -30,4 +29,6 @@ public class StandardLoanPolicy implements LoanPolicy{
 
         return loan.getBorrowedDate().plusDays(30);
     }
+
+    abstract void canLoan();
 }

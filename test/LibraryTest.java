@@ -22,6 +22,7 @@ public class LibraryTest {
 
         library.addMember(member);
         library.addResource(book);
+
     }
 
     @Test
