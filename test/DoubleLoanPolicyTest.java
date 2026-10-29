@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class DoubleLoanPolicyTest implements LoanPolicy {
@@ -8,4 +9,8 @@ public class DoubleLoanPolicyTest implements LoanPolicy {
         canLoanCalled = true;
         return true;
     }
-}
+
+    @Override
+    public LocalDate calculateDueDate(LocalDate borrowedDate){
+        return borrowedDate.plusDays(9);
+    }}

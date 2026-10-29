@@ -6,8 +6,11 @@ public class Library {
     private ArrayList<Resource> resources = new ArrayList<>();
     private ArrayList<Member> members = new ArrayList<>();
     private ArrayList<Loan> loans = new ArrayList<>();
+    private LoanPolicy loanPolicy;
 
-
+    public Library (LoanPolicy loanPolicy){
+        this.loanPolicy = loanPolicy;
+    }
     // Resources
     public ArrayList<Resource> getResourceList() {
         return resources;
@@ -45,6 +48,7 @@ public class Library {
     }
 
     // Loans
+
     public ArrayList<Loan> getLoanList() {
         return loans;
     }

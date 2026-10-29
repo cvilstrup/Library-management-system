@@ -1,5 +1,6 @@
 void main() {
-    Library library = new Library();
+    LoanPolicy slp = new StandardLoanPolicy();
+    Library library = new Library(slp);
     ConsoleUI consoleUI = new ConsoleUI(library);
 
     Book book1 = new Book("8700398365","Harry Potter og De Vises Sten", "J.K. Rowling", 368);
