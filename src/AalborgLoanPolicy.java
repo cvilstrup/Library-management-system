@@ -30,7 +30,7 @@ public class AalborgLoanPolicy implements LoanPolicy {
     }
 
     @Override
-    public LocalDate calculateDueDate(LocalDate borrowedDate) {
+    public LocalDate calculateDueDate(LocalDate borrowedDate, Resource resource) {
         return borrowedDate.plusDays(30);
     }
 }

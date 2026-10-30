@@ -5,5 +5,5 @@ public interface LoanPolicy {
 
     boolean canLoan(Resource resource, ArrayList<Resource> memberResourceList);
 
-    LocalDate calculateDueDate(LocalDate borrowedDate);
+    LocalDate calculateDueDate(LocalDate borrowedDate, Resource resource);
 }

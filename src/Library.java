@@ -8,6 +8,11 @@ public class Library {
     private ArrayList<Loan> loans = new ArrayList<>();
 
 
+    public Library(){}
+
+public Library(ArrayList<Resource> resources){
+    this.resources = resources;
+}
     // Resources
     public ArrayList<Resource> getResourceList() {
         return resources;
