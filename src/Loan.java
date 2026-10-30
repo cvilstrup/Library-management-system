@@ -37,6 +37,6 @@ public class Loan {
     }
 
     public String toString(){
-        return resource + ", lånt af: " + borrowedBy + ". Afleveringsfrist: " + getDueDate() ;
+        return resource + ", lånt af: " + borrowedBy + "Lånedato: " + borrowedDate + " | Afleveringsfrist: " + getDueDate() + "\n";
     }
 }

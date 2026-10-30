@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class ConsoleUI {
     private Library library;
 
@@ -32,19 +34,24 @@ public class ConsoleUI {
     private void borrowResource() {
         int memberID = Integer.parseInt(IO.readln("Indtast dit lånenummer: "));
         String identifier = IO.readln("Indtast ISBN/EAN: ");
-        String loanPolicyStr = IO.readln("Indtast by");
+        String loanPolicyStr = IO.readln("Indtast by (københavn, aalborg eller bornholm): ");
         LoanPolicy loanPolicy;
         switch (loanPolicyStr)   {
-            default ->  loanPolicy = new StandardLoanPolicy();
+            case "aalborg":
+                loanPolicy = new AalborgLoanPolicy();
+                break;
+            case "bornholm":
+                loanPolicy = new BornholmLoanPolicy();
+                break;
+            default:  loanPolicy = new StandardLoanPolicy();
         }
 
         LoanResult result = library.loanResource(memberID, identifier, loanPolicy);
-
         switch (result) {
             case NOT_MEMBER -> IO.println("Brugeren eksisterer ikke");
             case NOT_RESOURCE -> IO.println("Materialet eksisterer ikke");
             case RESOURCE_ALREADY_LOANED -> IO.println("Materialet er allerede lånt");
-            case LOANED -> IO.println("Lånet blev registreret");
+            case LOANED -> IO.println("Lånet blev registreret med " + loanPolicyStr + "s lånepolitik" );
             case MAX_LOANS -> IO.println("Lånet blev ikke registreret");
             default -> IO.println("Der er sket en fejl");
         }
@@ -71,11 +78,11 @@ public class ConsoleUI {
         int memberID = Integer.parseInt(IO.readln("Indtast dit lånenummer: "));
         IO.println();
             IO.println(library.getMember(memberID));
-            library.findLoansByMemberID(memberID);
-            if(library.findLoansByMemberID(memberID) == null){
+            ArrayList<Loan> loans = library.findLoansByMemberID(memberID);
+            if(loans == null){
                 IO.println("Der er ingen lån tilknyttet til denne bruger");
             }else{
-                IO.println(library.findLoansByMemberID(memberID));
+                IO.println(loans);
             }
         }
     }

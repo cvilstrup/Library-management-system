@@ -99,14 +99,14 @@ public Library(ArrayList<Resource> resources){
         return false;
     }
 
-    public ArrayList <Resource> findLoansByMemberID(int memberID){
-        ArrayList<Resource> loanedResources = new ArrayList<>();
+    public ArrayList <Loan> findLoansByMemberID(int memberID){
+        ArrayList<Loan> memberLoans = new ArrayList<>();
         for(Loan loan : loans){
             if(loan.getBorrowedBy().getMemberID() == memberID){
-                loanedResources.add(loan.getResource());
+                memberLoans.add(loan);
             }
         }
-        return loanedResources;
+        return memberLoans;
     }
 }
 

@@ -5,7 +5,7 @@ public class DoubleLoanPolicyTest implements LoanPolicy {
     public boolean canLoanCalled = false;
 
     @Override
-    public boolean canLoan(Resource resource, ArrayList<Resource> memberResourceList){
+    public boolean canLoan(Resource resource, ArrayList<Loan> memberResourceList){
         canLoanCalled = true;
         return true;
     }

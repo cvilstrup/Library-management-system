@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public interface LoanPolicy {
 
-    boolean canLoan(Resource resource, ArrayList<Resource> memberResourceList);
+    boolean canLoan(Resource resource, ArrayList<Loan> memberLoanList);
 
     LocalDate calculateDueDate(LocalDate borrowedDate, Resource resource);
 }

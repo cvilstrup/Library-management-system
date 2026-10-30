@@ -4,17 +4,17 @@ import java.util.ArrayList;
 public class AalborgLoanPolicy implements LoanPolicy {
 
     @Override
-    public boolean canLoan(Resource resource, ArrayList<Resource> memberResourceList) {
+    public boolean canLoan(Resource resource, ArrayList<Loan> memberLoanList) {
 
         int movieCounter = 0;
         int videoGameCounter = 0;
 
-        for (var rsrc : memberResourceList) {
+        for (Loan loan : memberLoanList) {
 
-            if (rsrc instanceof Movie) {
+            if (loan.getResource() instanceof Movie) {
                 movieCounter += 1;
 
-            } else if (rsrc instanceof VideoGame) {
+            } else if (loan.getResource() instanceof VideoGame) {
                 videoGameCounter += 1;
             }
         }

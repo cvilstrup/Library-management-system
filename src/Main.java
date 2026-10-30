@@ -42,12 +42,12 @@ void main() {
     Movie movie9 = new Movie("5050968003105","Free Solo","Nat-Geo Films","Jimmy Chin, Elizabeth C. Vasarhelyi",100);
     Movie movie10 = new Movie("7333018028289","Barbie","Warner Bros","Greta Gerwig",114);
 
-    AudioBook audiobook1 = new AudioBook("9780062477521","Hillbilly Elegy","?","J.D. Vance",409);
-    AudioBook audiobook2 = new AudioBook("9780008433840","The Hobbit","?","J.R.R. Tolkien",625);
-    AudioBook audiobook3 = new AudioBook("9781491510704","The Fault in Our Stars","?","John Green",434);
-    AudioBook audiobook4 = new AudioBook("9781713630296","Project Hail Mary","?","Andy Weir",970);
-    AudioBook audiobook5 = new AudioBook("9781529962628","Wonder","?","R.J. Palacio",430);
-    AudioBook audiobook6 = new AudioBook("9781442394933","Steve Jobs","?","Walter Isaacson",1518);
+    AudioBook audiobook1 = new AudioBook("9780062477521","Hillbilly Elegy","J.D. Vance","J.D. Vance",409);
+    AudioBook audiobook2 = new AudioBook("9780008433840","The Hobbit","J.R.R. Tolkien","J.R.R. Tolkien",625);
+    AudioBook audiobook3 = new AudioBook("9781491510704","The Fault in Our Stars","John Green","John Green",434);
+    AudioBook audiobook4 = new AudioBook("9781713630296","Project Hail Mary","Andy Weir","Andy Weir",970);
+    AudioBook audiobook5 = new AudioBook("9781529962628","Wonder","R.J. Palacio","R.J. Palacio",430);
+    AudioBook audiobook6 = new AudioBook("9781442394933","Steve Jobs","Walter Isaacson","Walter Isaacson",1518);
 
     Member member1 = new Member("Christoffer Vilstrup",100);
     Member member2 = new Member("Kong Gulerod",239);

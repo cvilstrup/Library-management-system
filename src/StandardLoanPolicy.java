@@ -5,7 +5,7 @@ public class StandardLoanPolicy implements LoanPolicy{
 
 
     @Override
-    public boolean canLoan(Resource resource, ArrayList<Resource> memberResourceList) {
+    public boolean canLoan(Resource resource, ArrayList<Loan> memberResourceList) {
         return true;
     }
 
