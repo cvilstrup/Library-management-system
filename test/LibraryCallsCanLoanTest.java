@@ -1,15 +1,30 @@
-import javax.xml.transform.Result;
+import org.junit.jupiter.api.Test;
 
-public class LibraryCallsCanLoanTest() {
+import javax.xml.transform.Result;
+import java.util.ArrayList;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+public class LibraryCallsCanLoanTest {
     //Arrange
     DoubleLoanPolicyTest testDouble = new DoubleLoanPolicyTest();
-    Library library = new Library( ,testDouble);
+    ArrayList<Resource> resources = new ArrayList<>();
+    Library library = new Library(resources);
+    Member member = new Member("Per", 150);
+    Resource resource = new Resource("12345678", "Bogen om tests", "C. Labo");
+
+
 
     //Act
-    LoanResult result = library.loan();
-    boolean canLoanCalled = testDouble.canLoanCalled;
+    @Test
+    void testDoublePolicy() {
+        library.addMember(member);
+        library.addResource(resource);
+        LoanResult result = library.loanResource(150, "12345678", testDouble);
+        boolean canLoanCalled = testDouble.canLoanCalled;
 
-    //Assert
-    void assertEquals(LoanResult.Success, Result){};
-    void assertTrue(canLoanCalled){}
+        //Assert
+        assertEquals(LoanResult.LOANED, result);
+        assertTrue (canLoanCalled);
+    }
 }

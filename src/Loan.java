@@ -29,7 +29,7 @@ public class Loan {
     }
 
     public LocalDate getDueDate() {
-        return loanPolicy.calculateDueDate(borrowedDate);
+        return loanPolicy.calculateDueDate(borrowedDate, resource);
     }
 
     public boolean isOverDue(){
