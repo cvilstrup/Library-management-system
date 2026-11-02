@@ -66,4 +66,19 @@ public class LibrarySaver {
         }
         return movies;
     }
+
+    public List<AudioBook> saveAudioBooks(List<AudioBook> audioBooks) throws IOException {
+        try (BufferedWriter writer = Files.newBufferedWriter(path)) {
+            for (AudioBook audioBook : audioBooks) {
+                String line = audioBook.getISBN() + ","
+                        + audioBook.getTitle() + ","
+                        + audioBook.getCreator() + ","
+                        + audioBook.getAuthor() + ","
+                        + audioBook.getLengthMin();
+                writer.write(line);
+                writer.newLine();
+            }
+        }
+        return audioBooks;
+    }
 }
