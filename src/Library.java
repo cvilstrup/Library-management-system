@@ -80,7 +80,8 @@ public Library(ArrayList<Resource> resources){
         }
 
         if (loanPolicy.canLoan(resource, findLoansByMemberID(memberID))) {
-            Loan newLoan = new Loan(resource, member, LocalDate.now(), loanPolicy);
+            LocalDate dueDate = loanPolicy.calculateDueDate(LocalDate.now(), resource);
+            Loan newLoan = new Loan(resource, member, LocalDate.now(), dueDate);
             loans.add(newLoan);
             resources.remove(getResource(identifier));
             return LoanResult.LOANED;

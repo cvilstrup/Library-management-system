@@ -1,5 +1,6 @@
-public class MovieCsvMapper {
+public class MovieCsvMapper implements CsvMapper<Movie> {
 
+    @Override
     public Movie fromCsv(String line){
         String[] parts = line.split(",");
         String EAN = parts[0];
@@ -11,6 +12,7 @@ public class MovieCsvMapper {
         return new Movie(EAN,title,creator,director,lengthMin); //String EAN, String title, String creator, String director, int lengthMin
     }
 
+    @Override
     public String toCsv(Movie movie){
         return movie.getEAN() + "," + movie.getTitle() + "," + movie.getCreator() + "," + movie.getDirector() + "," + movie.getLengthMin();
     }
