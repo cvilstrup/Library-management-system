@@ -1,6 +1,7 @@
 import java.time.LocalDate;
+import java.util.ArrayList;
 
-public class Loan {
+public class Loan implements Comparable<Loan> {
     private final Resource resource;
     private final Member borrowedBy;
     private final LocalDate borrowedDate;
@@ -16,11 +17,11 @@ public class Loan {
 // switch(Feedback)
 //    case Loan -> IO.println()
 
-    public Resource getResource(){
+    public Resource getResource() {
         return resource;
     }
 
-    public Member getBorrowedBy(){
+    public Member getBorrowedBy() {
         return borrowedBy;
     }
 
@@ -32,11 +33,23 @@ public class Loan {
         return loanPolicy.calculateDueDate(borrowedDate, resource);
     }
 
-    public boolean isOverDue(){
+    public boolean isOverDue() {
         return LocalDate.now().isAfter(getDueDate());
     }
 
-    public String toString(){
+    public String toString() {
         return resource + ", lånt af: " + borrowedBy + "Lånedato: " + borrowedDate + " | Afleveringsfrist: " + getDueDate() + "\n";
+    }
+    private ArrayList<Loan> loans;
+
+
+    @Override
+    public int compareTo(Loan other) {
+        return 0;
+    }
+
+    @Override
+    public int compareTo(LocalDate other){
+        return 0;
     }
 }

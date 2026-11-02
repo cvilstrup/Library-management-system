@@ -1,18 +1,16 @@
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import java.util.Comparator;
 import java.util.Objects;
 
-public class Member {
+public class Member implements Comparator<Member> {
     private final String memberName;
     private final int memberID;
 
-    public Member(String memberName, int memberID){
+    public Member(String memberName, int memberID) {
         this.memberName = memberName;
         this.memberID = memberID;
     }
-    public String getMemberName(){
+
+    public String getMemberName() {
         return memberName;
     }
 
@@ -21,16 +19,21 @@ public class Member {
     }
 
     @Override
+    public int compare(Member member1, Member member2) {
+        return 0;
+    }
+
+    @Override
     public boolean equals(Object otherObj) {
-        if(otherObj == null || getClass() != otherObj.getClass()) return false;
+        if (otherObj == null || getClass() != otherObj.getClass()) return false;
         Member otherMember = (Member) otherObj;
         return Objects.equals(memberName, otherMember.memberName) &&
                 Objects.equals(memberID, otherMember.memberID);
     }
 
-    public String toString(){
+    public String toString() {
         return String.format("""
-                             Låner: %s, (låner ID: %d)
-                             """, memberName, memberID);
+                Låner: %s, (låner ID: %d)
+                """, memberName, memberID);
     }
 }
