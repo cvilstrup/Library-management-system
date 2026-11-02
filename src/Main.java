@@ -99,12 +99,30 @@ void main() throws IOException {
         library.addResource(movie);
     }
 
-    AudioBook audiobook1 = new AudioBook("9780062477521","Hillbilly Elegy","J.D. Vance","J.D. Vance",409);
-    AudioBook audiobook2 = new AudioBook("9780008433840","The Hobbit","J.R.R. Tolkien","J.R.R. Tolkien",625);
-    AudioBook audiobook3 = new AudioBook("9781491510704","The Fault in Our Stars","John Green","John Green",434);
-    AudioBook audiobook4 = new AudioBook("9781713630296","Project Hail Mary","Andy Weir","Andy Weir",970);
-    AudioBook audiobook5 = new AudioBook("9781529962628","Wonder","R.J. Palacio","R.J. Palacio",430);
-    AudioBook audiobook6 = new AudioBook("9781442394933","Steve Jobs","Walter Isaacson","Walter Isaacson",1518);
+    Path pathAudioBooks = Path.of("audiobooks.csv");
+
+    AudioBookCsvMapper audioBookCsvMapper = new AudioBookCsvMapper();
+
+    AudioBookCsvFileHandler audioBookCsvFileHandler = new AudioBookCsvFileHandler(pathAudioBooks, audioBookCsvMapper);
+
+    LibrarySaver librarySaverAudioBooks = new LibrarySaver(pathAudioBooks);
+
+    /*
+    List<AudioBook> audioBooks = new ArrayList<>(List.of(
+    new AudioBook("9780062477521","Hillbilly Elegy","J.D. Vance","J.D. Vance",409),
+    new AudioBook("9780008433840","The Hobbit","J.R.R. Tolkien","J.R.R. Tolkien",625),
+    new AudioBook("9781491510704","The Fault in Our Stars","John Green","John Green",434),
+    new AudioBook("9781713630296","Project Hail Mary","Andy Weir","Andy Weir",970),
+    new AudioBook("9781529962628","Wonder","R.J. Palacio","R.J. Palacio",430),
+    new AudioBook("9781442394933","Steve Jobs","Walter Isaacson","Walter Isaacson",1518)));
+    */
+
+    //librarySaverAudioBooks.saveAudioBooks(audioBooks);
+
+    List<AudioBook> audioBooks = audioBookCsvFileHandler.loadAudioBooks();
+    for (AudioBook audioBook : audioBooks) {
+        library.addResource(audioBook);
+    }
 
     Path pathMembers = Path.of("members.csv");
 
