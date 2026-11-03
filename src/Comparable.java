@@ -1,9 +1,6 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.time.LocalDate;
 
 public interface Comparable<T> {
-        int compareTo(T others);
-        List<Loan> loans =
-                Collections.sort(loans);
-    }
+    int compareTo(T other);
+    int compareTo(LocalDate other);
+}
