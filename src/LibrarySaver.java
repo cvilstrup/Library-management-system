@@ -81,4 +81,18 @@ public class LibrarySaver {
         }
         return audioBooks;
     }
+
+    public List<Loan> saveLoans(List<Loan> loans) throws IOException {
+        try (BufferedWriter writer = Files.newBufferedWriter(path)) {
+            for (Loan loan : loans) {
+                String line = loan.getResource().getIdentifier() + ","
+                        + loan.getBorrowedBy().getMemberID() + ","
+                        + loan.getBorrowedDate() + ","
+                        + loan.getDueDate();
+                writer.write(line);
+                writer.newLine();
+            }
+        }
+        return loans;
+    }
 }
