@@ -1,5 +1,6 @@
-public class VideoGameCsvMapper {
+public class VideoGameCsvMapper implements CsvMapper<VideoGame> {
 
+    @Override
     public VideoGame fromCsv(String line){
         String[] parts = line.split(",");
         String EAN = parts[0];
@@ -10,6 +11,7 @@ public class VideoGameCsvMapper {
         return new VideoGame(EAN,title,creator,platform); //ean, title, creator, platform
     }
 
+    @Override
     public String toCsv(VideoGame videogame){
         return videogame.getEAN() + "," + videogame.getTitle() + "," + videogame.getCreator() + "," + videogame.getPlatform();
     }
