@@ -47,9 +47,4 @@ public class Loan implements Comparable<Loan> {
     public int compareTo(Loan other) {
         return 0;
     }
-
-    @Override
-    public int compareTo(LocalDate other){
-        return 0;
-    }
 }
