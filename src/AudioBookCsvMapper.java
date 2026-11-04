@@ -1,5 +1,6 @@
-public class AudioBookCsvMapper {
+public class AudioBookCsvMapper implements CsvMapper<AudioBook> {
 
+    @Override
     public AudioBook fromCsv(String line){
         String[] parts = line.split(",");
         String ISBN = parts[0];
@@ -11,8 +12,10 @@ public class AudioBookCsvMapper {
         return new AudioBook(ISBN,title,creator,author,lengthMin); //isbn, title, creator, author, lengthMin
     }
 
+    @Override
     public String toCsv(AudioBook audioBook){
-        return audioBook.getISBN() + "," + audioBook.getTitle() + "," + audioBook.getCreator() + "," + audioBook.getAuthor() + "," + audioBook.getLengthMin();
+        return audioBook.getISBN() + "," + audioBook.getTitle() + ","
+                + audioBook.getCreator() + "," + audioBook.getAuthor()
+                + "," + audioBook.getLengthMin();
     }
-
 }

@@ -9,7 +9,7 @@ void main() throws IOException {
 
     BookCsvMapper bookCsvMapper = new BookCsvMapper();
 
-    BookCsvFileHandler bookCsvFileHandler = new BookCsvFileHandler(pathBooks, bookCsvMapper);
+    CsvFileHandler<Book> bookCsvFileHandler = new CsvFileHandler<>(pathBooks, bookCsvMapper);
 
     LibrarySaver librarySaverBooks = new LibrarySaver(pathBooks);
 
@@ -29,7 +29,7 @@ void main() throws IOException {
 
     //librarySaverVideoGames.saveVideoGames(videogames);
 
-    List<Book> books = bookCsvFileHandler.loadBooks();
+    List<Book> books = bookCsvFileHandler.load();
     for (Book book : books) {
         library.addResource(book);
     }
@@ -38,7 +38,7 @@ void main() throws IOException {
 
     VideoGameCsvMapper videoGameCsvMapper = new VideoGameCsvMapper();
 
-    VideoGameCsvFileHandler videoGameCsvFileHandler = new VideoGameCsvFileHandler(pathVideoGames, videoGameCsvMapper);
+    CsvFileHandler<VideoGame> videoGameCsvFileHandler = new CsvFileHandler<>(pathVideoGames, videoGameCsvMapper);
 
     LibrarySaver librarySaverVideoGames = new LibrarySaver(pathVideoGames);
 
@@ -65,7 +65,7 @@ void main() throws IOException {
 
     //librarySaverVideoGames.saveVideoGames(videogames);
 
-    List<VideoGame> videoGames = videoGameCsvFileHandler.loadVideoGames();
+    List<VideoGame> videoGames = videoGameCsvFileHandler.load();
     for (VideoGame videoGame : videoGames) {
         library.addResource(videoGame);
     }
@@ -74,7 +74,7 @@ void main() throws IOException {
 
     MovieCsvMapper movieCsvMapper = new MovieCsvMapper();
 
-    MovieCsvFileHandler movieCsvFileHandler = new MovieCsvFileHandler(pathMovies, movieCsvMapper);
+    CsvFileHandler<Movie> movieCsvFileHandler = new CsvFileHandler<>(pathMovies, movieCsvMapper);
 
     LibrarySaver librarySaverMovies = new LibrarySaver(pathMovies);
 
@@ -94,7 +94,7 @@ void main() throws IOException {
 
     //librarySaverMovies.saveMovies(movies);
 
-    List<Movie> movies = movieCsvFileHandler.loadMovies();
+    List<Movie> movies = movieCsvFileHandler.load();
     for (Movie movie : movies) {
         library.addResource(movie);
     }
@@ -103,7 +103,7 @@ void main() throws IOException {
 
     AudioBookCsvMapper audioBookCsvMapper = new AudioBookCsvMapper();
 
-    AudioBookCsvFileHandler audioBookCsvFileHandler = new AudioBookCsvFileHandler(pathAudioBooks, audioBookCsvMapper);
+    CsvFileHandler<AudioBook> audioBookCsvFileHandler = new CsvFileHandler<>(pathAudioBooks, audioBookCsvMapper);
 
     LibrarySaver librarySaverAudioBooks = new LibrarySaver(pathAudioBooks);
 
@@ -119,7 +119,7 @@ void main() throws IOException {
 
     //librarySaverAudioBooks.saveAudioBooks(audioBooks);
 
-    List<AudioBook> audioBooks = audioBookCsvFileHandler.loadAudioBooks();
+    List<AudioBook> audioBooks = audioBookCsvFileHandler.load();
     for (AudioBook audioBook : audioBooks) {
         library.addResource(audioBook);
     }
@@ -128,7 +128,7 @@ void main() throws IOException {
 
     MemberCsvMapper memberCsvMapper = new MemberCsvMapper();
 
-    MemberCsvFileHandler memberCsvFileHandler = new MemberCsvFileHandler(pathMembers, memberCsvMapper);
+    CsvFileHandler<Member> memberCsvFileHandler = new CsvFileHandler<>(pathMembers, memberCsvMapper);
 
     LibrarySaver librarySaverMembers = new LibrarySaver(pathMembers);
 
@@ -143,7 +143,7 @@ void main() throws IOException {
 
     //librarySaverMembers.saveMembers(members);
 
-    List<Member> members = memberCsvFileHandler.loadMembers();
+    List<Member> members = memberCsvFileHandler.load();
     for (Member member : members) {
         library.addMember(member);
     }
