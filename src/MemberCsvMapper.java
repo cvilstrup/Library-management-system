@@ -1,7 +1,8 @@
 import java.time.LocalDate;
 
-public class MemberCsvMapper {
+public class MemberCsvMapper implements CsvMapper<Member> {
 
+    @Override
     public Member fromCsv(String line){
         String[] parts = line.split(",");
         String memberName = parts[0];
@@ -9,6 +10,7 @@ public class MemberCsvMapper {
         return new Member(memberName,memberID);
     }
 
+    @Override
     public String toCsv(Member member){
         return member.getMemberName() + "," + member.getMemberID();
     }

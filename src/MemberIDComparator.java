@@ -7,7 +7,6 @@ public class MemberIDComparator implements Comparator<Member> {
 
 
     @Override
-
     public int compare(Member member1, Member member2) {
         ArrayList<Member> members = new ArrayList<>();
         List<Member> MemberID = List.of();

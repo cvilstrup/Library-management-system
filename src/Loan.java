@@ -5,14 +5,14 @@ public class Loan implements Comparable<Loan> {
     private final Resource resource;
     private final Member borrowedBy;
     private final LocalDate borrowedDate;
-    private final LoanPolicy loanPolicy;
+    private final LocalDate dueDate;
 
 
-    public Loan(Resource resource, Member borrowedBy, LocalDate borrowedDate, LoanPolicy loanPolicy) {
+    public Loan(Resource resource, Member borrowedBy, LocalDate borrowedDate, LocalDate dueDate) {
         this.resource = resource;
         this.borrowedBy = borrowedBy;
         this.borrowedDate = borrowedDate;
-        this.loanPolicy = loanPolicy;
+        this.dueDate = dueDate;
     }
 // switch(Feedback)
 //    case Loan -> IO.println()
@@ -30,7 +30,7 @@ public class Loan implements Comparable<Loan> {
     }
 
     public LocalDate getDueDate() {
-        return loanPolicy.calculateDueDate(borrowedDate, resource);
+        return dueDate;
     }
 
     public boolean isOverDue() {

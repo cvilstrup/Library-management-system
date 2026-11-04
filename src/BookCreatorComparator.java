@@ -1,4 +1,3 @@
-import java.util.Comparator;
 
 public class BookCreatorComparator implements Comparator<Book> {
     @Override

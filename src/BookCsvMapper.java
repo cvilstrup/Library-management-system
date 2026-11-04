@@ -1,7 +1,8 @@
 import java.time.LocalDate;
 
-public class BookCsvMapper {
+public class BookCsvMapper implements CsvMapper<Book> {
 
+    @Override
     public Book fromCsv(String line){
         String[] parts = line.split(",");
         String ISBN = parts[0];
@@ -12,6 +13,7 @@ public class BookCsvMapper {
         return new Book(ISBN,title,creator,pages);
     }
 
+    @Override
     public String toCsv(Book book){
         return book.getISBN() + "," + book.getTitle() + "," + book.getCreator() + "," + book.getPages();
     }

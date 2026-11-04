@@ -13,7 +13,7 @@ public class LoanTest {
         Member m1 = new Member("Din mor", 200);
         LocalDate ld1 = LocalDate.now();
         LoanPolicy standardLoanPolicy = new StandardLoanPolicy();
-        Loan loan = new Loan(r1, m1, ld1, standardLoanPolicy);
+        Loan loan = new Loan(r1, m1, ld1, ld1);
         Resource resource = loan.getResource();
         assertEquals(r1, loan.getResource());
     }
