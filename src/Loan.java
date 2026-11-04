@@ -40,16 +40,9 @@ public class Loan implements Comparable<Loan> {
     public String toString() {
         return resource + ", lånt af: " + borrowedBy + "Lånedato: " + borrowedDate + " | Afleveringsfrist: " + getDueDate() + "\n";
     }
-    private ArrayList<Loan> loans;
-
 
     @Override
     public int compareTo(Loan other) {
-        return 0;
-    }
-
-    @Override
-    public int compareTo(LocalDate other){
-        return 0;
+        return dueDate.compareTo(other.dueDate);
     }
 }
