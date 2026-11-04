@@ -43,6 +43,6 @@ public class Loan implements Comparable<Loan> {
 
     @Override
     public int compareTo(Loan other) {
-        return 0;
+        return dueDate.compareTo(other.dueDate);
     }
 }
