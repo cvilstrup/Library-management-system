@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Objects;
 
@@ -26,14 +27,15 @@ public class Member implements Comparable<Member> {
                 Objects.equals(memberID, otherMember.memberID);
     }
 
+    @Override
+    public int compareTo(Member other) {
+        return Integer.compare(this.memberID, other.memberID);
+    }
+
     public String toString() {
         return String.format("""
                 Låner: %s, (låner ID: %d)
                 """, memberName, memberID);
     }
 
-    @Override
-    public int compareTo(Member other) {
-        return Integer.compare(memberID, other.memberID);
-    }
 }
